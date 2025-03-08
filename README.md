@@ -1,5 +1,4 @@
 # combi
-
 import itertools
 
 def encontrar_mejor_combinacion(precios, rendimientos, presupuesto_max):
@@ -7,7 +6,7 @@ def encontrar_mejor_combinacion(precios, rendimientos, presupuesto_max):
     n_productos = len(productos)
     
     # Generamos todas las combinaciones posibles de cantidades (0 a 19) para cada producto
-    cantidades_posibles = [range(20)] * n_productos
+    cantidades_posibles = [range(4)] * n_productos
     todas_combinaciones = itertools.product(*cantidades_posibles)
     
     mejor_combinacion = None
@@ -48,7 +47,7 @@ def encontrar_mejor_combinacion(precios, rendimientos, presupuesto_max):
         print(f"\nMejor combinación: {', '.join(productos_str)}")
         print(f"Inversión total: ${precio_total}")
         print(f"Rendimiento total: ${rendimiento_total:.2f}")
-        print(f"Rendimiento por dólar invertido: ${mejor_rendimiento_por_dolar:.2f}")
+        print(f"Rendimiento por dólar invertido: ${mejor_rendimiento_por_dolar:.4f}")
     else:
         print("No se encontró ninguna combinación válida dentro del presupuesto")
 
@@ -56,6 +55,6 @@ def encontrar_mejor_combinacion(precios, rendimientos, presupuesto_max):
 precios = [40, 400, 60]
 rendimientos = [90, 60, 75]
 presupuesto_max = 5400
-pres_minimo=5000
+pres_minimo=400
 
 encontrar_mejor_combinacion(precios, rendimientos, presupuesto_max)
